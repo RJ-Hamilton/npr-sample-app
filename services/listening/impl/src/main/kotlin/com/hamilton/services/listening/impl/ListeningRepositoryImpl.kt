@@ -8,7 +8,7 @@ import com.hamilton.services.listening.api.models.domain.HeadlineItemsMapper
 class ListeningRepositoryImpl(
     private val listeningApi: ListeningApi
 ) : ListeningRepository {
-    override suspend fun getData(): List<HeadlineItem> {
+    override suspend fun getHeadlines(): List<HeadlineItem> {
         val response = listeningApi.getFetchData()
 
         return response.body()?.let { listeningResponse ->

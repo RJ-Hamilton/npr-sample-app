@@ -4,7 +4,7 @@ import com.hamilton.services.listening.api.models.data.ListeningResponse
 
 data class HeadlineItem(
     val title: String,
-    val image: String? = null,
+    val imageUrl: String? = null,
     val url: String
 )
 
@@ -13,7 +13,7 @@ object HeadlineItemsMapper {
         return listeningResponse.items.map { items ->
             HeadlineItem(
                 title = items.attributes.title,
-                image = items.itemLinks.image.find { it.rel == "square" }?.image,
+                imageUrl = items.itemLinks.image.find { it.rel == "square" }?.image,
                 url = items.itemLinks.web.first().href
             )
         }

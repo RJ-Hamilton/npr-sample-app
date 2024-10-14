@@ -9,5 +9,5 @@ interface ListeningRepository {
      *
      * @return List<HeadlineItem> A list of `HeadlineItem` objects.
      */
-    suspend fun getData(): List<HeadlineItem>
+    suspend fun getHeadlines(): List<HeadlineItem>
 }

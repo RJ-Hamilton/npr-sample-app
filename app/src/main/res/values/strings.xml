@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NPR Sample App</string>
+    <string name="error_message">Unable to load headlines. Please check your internet connection and try again.</string>
 </resources>
