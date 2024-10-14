@@ -19,3 +19,5 @@ dependencyResolutionManagement {
 rootProject.name = "NPR Sample App"
 
 include(":app")
+include(":services:listening:api")
+include(":services:listening:impl")

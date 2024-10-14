@@ -56,6 +56,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":services:listening:api"))
+    implementation(project(":services:listening:impl"))
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
