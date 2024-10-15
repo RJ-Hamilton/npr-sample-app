@@ -55,7 +55,8 @@ class MainViewModel @Inject constructor(
                         isLoading = false,
                         isRefreshing = false,
                         errorState = ErrorState(
-                            errorMessage = R.string.error_dialog_description
+                            title = R.string.error_dialog_title,
+                            description = R.string.error_dialog_description
                         )
                     )
                 }

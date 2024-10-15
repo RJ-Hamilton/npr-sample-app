@@ -75,14 +75,14 @@ fun MainContent() {
         }
     }
 
-    state.errorState?.let {
+    state.errorState?.let { errorState ->
         AlertDialog(
             onDismissRequest = { viewModel.dismissErrorMessage() },
             title = {
-                Text(text = stringResource(R.string.error_dialog_title))
+                Text(text = stringResource(errorState.title))
             },
             text = {
-                Text(text = stringResource(R.string.error_dialog_description))
+                Text(text = stringResource(errorState.description))
             },
             confirmButton = {
                 Button(onClick = { viewModel.getHeadlines() }) {

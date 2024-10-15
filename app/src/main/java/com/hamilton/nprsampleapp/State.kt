@@ -12,5 +12,6 @@ data class State(
 )
 
 data class ErrorState(
-    @StringRes val errorMessage: Int
+    @StringRes val title: Int,
+    @StringRes val description: Int
 )
