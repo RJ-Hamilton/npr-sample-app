@@ -10,8 +10,6 @@
   image exists for a **headline**, it will be the **square rel** from the **image** array inside the
   **links** object
 - Each _headline’s uid_ field is distinct
-<br>
-<br>
 
 ### Bonus points
 Implement clicking a **headline** to open a new view which loads the url into a **WebView**. The url
