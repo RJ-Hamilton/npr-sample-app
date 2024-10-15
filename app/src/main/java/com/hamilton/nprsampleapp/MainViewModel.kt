@@ -70,4 +70,10 @@ class MainViewModel @Inject constructor(
             )
         }
     }
+
+    fun setWebViewLoading(isLoading: Boolean) {
+        _uiState.update { currentState ->
+            currentState.copy(isWebViewLoading = isLoading)
+        }
+    }
 }

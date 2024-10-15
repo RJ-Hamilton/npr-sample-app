@@ -7,7 +7,8 @@ data class State(
     val isLoading: Boolean = false,
     val isRefreshing: Boolean = false,
     val headlineUiModels: List<HeadlineUiModel> = emptyList(),
-    val errorState: ErrorState? = null
+    val errorState: ErrorState? = null,
+    val isWebViewLoading: Boolean = true
 )
 
 data class ErrorState(

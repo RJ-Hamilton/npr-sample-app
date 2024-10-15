@@ -10,28 +10,28 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.viewinterop.AndroidView
-import com.hamilton.nprsampleapp.ui.theme.NPRSampleAppTheme
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.hamilton.nprsampleapp.MainViewModel
 
 @Composable
 fun HeadlineWebView(
     modifier: Modifier = Modifier,
     url: String
 ) {
-    val context = LocalContext.current
-    var isLoading by remember { mutableStateOf(true) }
+    val viewModel: MainViewModel = hiltViewModel()
+    val state by viewModel.uiState.collectAsState()
 
-    if (isLoading) {
+    val context = LocalContext.current
+
+    if (state.isWebViewLoading) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -50,11 +50,11 @@ fun HeadlineWebView(
             WebView(context).apply {
                 webViewClient = object : WebViewClient() {
                     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                        isLoading = true
+                        viewModel.setWebViewLoading(true)
                     }
 
                     override fun onPageFinished(view: WebView?, url: String?) {
-                        isLoading = false
+                        viewModel.setWebViewLoading(false)
                     }
                 }
                 setBackgroundColor(Color.White.toArgb())
@@ -62,12 +62,4 @@ fun HeadlineWebView(
             }
         }
     )
-}
-
-@PreviewLightDark
-@Composable
-private fun PreviewHeadlineWebView() {
-    NPRSampleAppTheme {
-        HeadlineWebView(url = "")
-    }
 }
