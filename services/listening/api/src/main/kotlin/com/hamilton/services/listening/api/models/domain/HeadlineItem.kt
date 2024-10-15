@@ -14,7 +14,7 @@ object HeadlineItemsMapper {
             HeadlineItem(
                 title = items.attributes.title,
                 imageUrl = items.links.image.find { it.rel == "square" }?.href,
-                url = items.links.web.first().href
+                url = items.links.web.firstOrNull()?.href.orEmpty()
             )
         }
     }
