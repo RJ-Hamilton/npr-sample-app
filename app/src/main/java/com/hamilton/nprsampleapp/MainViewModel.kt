@@ -25,7 +25,7 @@ class MainViewModel @Inject constructor(
         getHeadlines()
     }
 
-    private fun getHeadlines(isRefreshing: Boolean = false) {
+    fun getHeadlines(isRefreshing: Boolean = false) {
         if (isRefreshing) {
             _uiState.update { currentState ->
                 currentState.copy(isRefreshing = true)
@@ -55,11 +55,19 @@ class MainViewModel @Inject constructor(
                         isLoading = false,
                         isRefreshing = false,
                         errorState = ErrorState(
-                            errorMessage = R.string.error_message
+                            errorMessage = R.string.error_dialog_description
                         )
                     )
                 }
             }
+        }
+    }
+
+    fun dismissErrorMessage() {
+        _uiState.update { currentState ->
+            currentState.copy(
+                errorState = null
+            )
         }
     }
 }

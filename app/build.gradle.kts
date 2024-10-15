@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":services:listening:impl"))
 
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.browser)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.material3)
@@ -67,8 +68,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
-
     implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.coil.compose)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
 

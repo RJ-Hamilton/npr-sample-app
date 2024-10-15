@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">NPR Sample App</string>
-    <string name="error_message">Unable to load headlines. Please check your internet connection and try again.</string>
+
+    <string name="error_dialog_title">Unable to load headlines</string>
+    <string name="error_dialog_description">Please check your internet connection and try again.</string>
+    <string name="error_dialog_retry_button">Retry</string>
+    <string name="error_dialog_dismiss_button">Dismiss</string>
 </resources>

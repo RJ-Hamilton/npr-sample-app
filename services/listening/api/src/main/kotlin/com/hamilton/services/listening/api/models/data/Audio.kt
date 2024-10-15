@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 data class Audio(
     @SerialName("content-type") val contentType: String,
     val href: String,
-    val rel: String
+    val rel: String? = null
 )

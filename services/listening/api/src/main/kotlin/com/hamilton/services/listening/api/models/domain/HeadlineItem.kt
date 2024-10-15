@@ -13,8 +13,8 @@ object HeadlineItemsMapper {
         return listeningResponse.items.map { items ->
             HeadlineItem(
                 title = items.attributes.title,
-                imageUrl = items.itemLinks.image.find { it.rel == "square" }?.image,
-                url = items.itemLinks.web.first().href
+                imageUrl = items.links.image.find { it.rel == "square" }?.href,
+                url = items.links.web.first().href
             )
         }
     }

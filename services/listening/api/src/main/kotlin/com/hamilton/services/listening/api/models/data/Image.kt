@@ -9,7 +9,7 @@ data class Image(
     @SerialName("content-type") val contentType: String,
     val href: String,
     val image: String,
-    val producer: String,
+    val producer: String? = null,
     val provider: String,
-    val rel: String
+    val rel: String? = null
 )

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import com.hamilton.nprsampleapp.ui.MainContent
 import com.hamilton.nprsampleapp.ui.theme.NPRSampleAppTheme
@@ -27,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .safeDrawingPadding()
-                        .background(color = Color.LightGray)
+                        .background(color = MaterialTheme.colorScheme.background)
                 ) {
                     MainContent()
                 }

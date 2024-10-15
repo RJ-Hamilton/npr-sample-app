@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 data class Item(
     val attributes: ItemAttributes,
     val href: String,
-    val itemLinks: ItemLinks,
+    val links: ItemLinks,
     val version: String
 )

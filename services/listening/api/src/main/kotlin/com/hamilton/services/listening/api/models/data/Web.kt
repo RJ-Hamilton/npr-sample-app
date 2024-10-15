@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 data class Web(
     @SerialName("content-type") val contentType: String,
     val href: String,
-    val linkText: String,
-    val rel: String
+    val linkText: String? = null,
+    val rel: String? = null
 )
