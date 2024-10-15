@@ -15,11 +15,9 @@ okhttp = "4.12.0"
 hilt = "2.51"
 androidxHiltNavCompose = "1.2.0"
 coil = "2.4.0"
-browser = "1.8.0"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "gradlePlugin" }
-androidx-browser = { module = "androidx.browser:browser", version.ref = "browser" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }

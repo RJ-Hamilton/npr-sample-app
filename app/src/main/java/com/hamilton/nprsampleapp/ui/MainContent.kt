@@ -1,8 +1,5 @@
 package com.hamilton.nprsampleapp.ui
 
-import android.content.Context
-import android.net.Uri
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,7 +19,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,7 +30,6 @@ import com.hamilton.nprsampleapp.R
 fun MainContent() {
     val viewModel: MainViewModel = hiltViewModel()
     val state by viewModel.uiState.collectAsState()
-    val context = LocalContext.current
 
     if (state.isLoading) {
         Box(
@@ -43,7 +38,9 @@ fun MainContent() {
                 .background(color = MaterialTheme.colorScheme.background),
             contentAlignment = Alignment.Center
         ) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                color = MaterialTheme.colorScheme.inversePrimary
+            )
         }
     } else {
         PullToRefreshBox(
@@ -71,10 +68,7 @@ fun MainContent() {
 
                     Headline(
                         modifier = Modifier.padding(paddingValues),
-                        headlineUiModel = headlineUiModel,
-                        onClick = { headlineUrl ->
-                            openBrowser(context = context, url = headlineUrl)
-                        }
+                        headlineUiModel = headlineUiModel
                     )
                 }
             }
@@ -102,10 +96,4 @@ fun MainContent() {
             }
         )
     }
-}
-
-private fun openBrowser(context: Context, url: String) {
-    val uri = Uri.parse(url)
-    val customTabsIntent = CustomTabsIntent.Builder().build()
-    customTabsIntent.launchUrl(context, uri)
 }
